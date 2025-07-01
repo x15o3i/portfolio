@@ -83,13 +83,7 @@ section:last-of-type {
     border-bottom: none;
 }
 
-.project-item img {
-    width: 100%;
-    max-width: 300px;  /* Resize image */
-    height: auto;      /* Keep aspect ratio */
-    border-radius: 10px; /* Optional: round corners */
-    margin-bottom: 10px; /* Space below image */
-}
+
 
 
 section h2 {
@@ -140,7 +134,16 @@ section h2 {
     background-color: #111111; /* Dark grey for project cards */
     padding: 25px;
     border: 1px solid #222222;
+    border-radius: 10px;
     text-align: left; /* Align text to left for project items */
+}
+
+.project-item img {
+    width: 100%;
+    max-width: 300px;  /* Resize image */
+    height: auto;      /* Keep aspect ratio */
+    border-radius: 10px; /* Optional: round corners */
+    margin-bottom: 10px; /* Space below image */
 }
 
 .project-item h3 {
