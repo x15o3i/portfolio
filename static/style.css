@@ -1,0 +1,318 @@
+/* Basic Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* For smooth scrolling on nav clicks */
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Common minimalist sans-serif font */
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text */
+    line-height: 1.6;
+    font-size: 16px; /* Base font size */
+}
+
+.container {
+    width: 85%;
+    max-width: 1100px; /* Max width for content */
+    margin: 0 auto; /* Center content */
+    padding: 0 20px;
+}
+
+/* Header & Navigation */
+header {
+    background-color: #0a0a0a; /* Slightly off-black for subtle separation */
+    padding: 20px 0;
+    position: fixed; /* Sticky header */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #222; /* Subtle border */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+header nav ul li a {
+    color: #cccccc; /* Lighter grey for nav links */
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active { /* For active page or hover */
+    color: #ffffff;
+}
+
+/* Main Content Sections */
+main {
+    padding-top: 80px; /* Adjust based on header height */
+}
+
+section {
+    padding: 60px 0; /* Vertical padding for sections */
+    border-bottom: 1px solid #1a1a1a; /* Subtle separator lines for sections */
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+.project-item img {
+    width: 100%;
+    max-width: 300px;  /* Resize image */
+    height: auto;      /* Keep aspect ratio */
+    border-radius: 10px; /* Optional: round corners */
+    margin-bottom: 10px; /* Space below image */
+}
+
+
+section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+/* Hero Section (Optional - added for a bit more style) */
+#hero {
+    background-color: #050505; /* Very dark grey */
+    text-align: center;
+    padding: 80px 0; /* More padding for hero */
+}
+
+#hero h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.2em;
+    color: #bbbbbb;
+}
+
+
+/* About Section */
+#about p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #dddddd;
+}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px;
+}
+
+.project-item {
+    background-color: #111111; /* Dark grey for project cards */
+    padding: 25px;
+    border: 1px solid #222222;
+    text-align: left; /* Align text to left for project items */
+}
+
+.project-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.project-item p {
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    color: #cccccc;
+}
+
+/* Interactive Button Style */
+.interactive-button {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.interactive-button:hover {
+    transform: scale(1.1); /* Standard grow effect for all interactive buttons */
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* No specific override needed for project-link anymore if 1.1 is standard */
+
+
+/* Contact Section */
+#contact {
+    background-color: #050505; /* Slightly different bg for contact section */
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto; /* Center form */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    color: #cccccc;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a1a1a; /* Dark input background */
+    border: 1px solid #333333;
+    color: #ffffff;
+    font-size: 1em;
+    border-radius: 3px; /* Subtle rounding */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ffffff;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resize */
+}
+
+#contact-form button.interactive-button {
+    width: 100%; /* Full width submit button */
+    padding: 12px;
+    font-size: 1em;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    background-color: #0a0a0a;
+    color: #777777;
+    font-size: 0.9em;
+    border-top: 1px solid #222;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav {
+        margin-top: 15px;
+    }
+
+    header nav ul li {
+        margin: 0 10px; /* Adjust spacing for smaller screens */
+    }
+
+    section h2 {
+        font-size: 2em;
+    }
+
+    #hero h2 {
+        font-size: 2.5em;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Stack projects on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+    header .logo {
+        font-size: 1.6em;
+    }
+    header nav ul li a {
+        font-size: 0.9em;
+    }
+    section h2 {
+        font-size: 1.8em;
+    }
+    #hero h2 {
+        font-size: 2em;
+    }
+    .interactive-button {
+        padding: 8px 16px;
+        font-size: 0.85em;
+    }
+}
+
+.flash-messages {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0;
+}
+
+.flash {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.flash.success {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #000000
+}
+
+.flash.error {
+  background-color: #ffe6e6;
+  color: #b30000;
+  border: 1px solid #b30000;
+}
+
