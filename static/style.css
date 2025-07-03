@@ -9,12 +9,85 @@ html {
     scroll-behavior: smooth; /* For smooth scrolling on nav clicks */
 }
 
+:root {
+    --background-color-dark: #000000;
+    --text-color-dark: #ffffff;
+    --header-bg-dark: #0a0a0a;
+    --header-border-dark: #222;
+    --nav-link-color-dark: #cccccc;
+    --nav-link-hover-dark: #ffffff;
+    --section-border-dark: #1a1a1a;
+    --hero-bg-dark: #050505;
+    --hero-text-color-dark: #bbbbbb;
+    --about-text-color-dark: #dddddd;
+    --project-item-bg-dark: #111111;
+    --project-item-border-dark: #222222;
+    --project-item-text-dark: #cccccc;
+    --button-border-dark: #ffffff;
+    --button-text-dark: #ffffff;
+    --button-hover-bg-dark: #ffffff;
+    --button-hover-text-dark: #000000;
+    --contact-bg-dark: #050505;
+    --form-label-color-dark: #cccccc;
+    --form-input-bg-dark: #1a1a1a;
+    --form-input-border-dark: #333333;
+    --form-input-focus-border-dark: #ffffff;
+    --form-input-focus-shadow-dark: rgba(255, 255, 255, 0.3);
+    --footer-bg-dark: #0a0a0a;
+    --footer-text-color-dark: #777777;
+    --footer-border-dark: #222;
+    --flash-success-bg-dark: #1a1a1a;
+    --flash-success-text-dark: #ffffff;
+    --flash-success-border-dark: #000000;
+    --flash-error-bg-dark: #ffe6e6; /* Error colors might stay similar or be adjusted */
+    --flash-error-text-dark: #b30000;
+    --flash-error-border-dark: #b30000;
+
+    --background-color-light: #ffffff;
+    --text-color-light: #000000;
+    --header-bg-light: #f8f9fa;
+    --header-border-light: #dee2e6;
+    --nav-link-color-light: #555555;
+    --nav-link-hover-light: #000000;
+    --section-border-light: #eeeeee;
+    --hero-bg-light: #f8f9fa;
+    --hero-text-color-light: #495057;
+    --about-text-color-light: #333333;
+    --project-item-bg-light: #fdfdfd;
+    --project-item-border-light: #eeeeee;
+    --project-item-text-light: #555555;
+    --button-border-light: #000000;
+    --button-text-light: #000000;
+    --button-hover-bg-light: #000000;
+    --button-hover-text-light: #ffffff;
+    --contact-bg-light: #f8f9fa;
+    --form-label-color-light: #555555;
+    --form-input-bg-light: #ffffff;
+    --form-input-border-light: #ced4da;
+    --form-input-focus-border-light: #000000;
+    --form-input-focus-shadow-light: rgba(0, 0, 0, 0.1);
+    --footer-bg-light: #f8f9fa;
+    --footer-text-color-light: #777777;
+    --footer-border-light: #dee2e6;
+    --flash-success-bg-light: #e6f9e6;
+    --flash-success-text-light: #006600;
+    --flash-success-border-light: #006600;
+
+}
+
+
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif; /* Common minimalist sans-serif font */
-    background-color: #000000; /* Black background */
-    color: #ffffff; /* White text */
+    background-color: var(--background-color-dark); /* Black background */
+    color: var(--text-color-dark); /* White text */
     line-height: 1.6;
     font-size: 16px; /* Base font size */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-theme {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
 }
 
 .container {
@@ -26,13 +99,19 @@ body {
 
 /* Header & Navigation */
 header {
-    background-color: #0a0a0a; /* Slightly off-black for subtle separation */
+    background-color: var(--header-bg-dark);
     padding: 20px 0;
     position: fixed; /* Sticky header */
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #222; /* Subtle border */
+    border-bottom: 1px solid var(--header-border-dark);
+    transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+body.light-theme header {
+    background-color: var(--header-bg-light);
+    border-bottom: 1px solid var(--header-border-light);
 }
 
 header .container {
@@ -44,8 +123,13 @@ header .container {
 header .logo {
     font-size: 1.8em;
     font-weight: bold;
-    color: #ffffff;
+    color: var(--text-color-dark);
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+body.light-theme header .logo {
+    color: var(--text-color-light);
 }
 
 header nav ul {
@@ -58,15 +142,24 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: #cccccc; /* Lighter grey for nav links */
+    color: var(--nav-link-color-dark);
     text-decoration: none;
     font-size: 1em;
     transition: color 0.3s ease;
 }
 
+body.light-theme header nav ul li a {
+    color: var(--nav-link-color-light);
+}
+
 header nav ul li a:hover,
 header nav ul li a.active { /* For active page or hover */
-    color: #ffffff;
+    color: var(--nav-link-hover-dark);
+}
+
+body.light-theme header nav ul li a:hover,
+body.light-theme header nav ul li a.active {
+    color: var(--nav-link-hover-light);
 }
 
 /* Main Content Sections */
@@ -76,7 +169,12 @@ main {
 
 section {
     padding: 60px 0; /* Vertical padding for sections */
-    border-bottom: 1px solid #1a1a1a; /* Subtle separator lines for sections */
+    border-bottom: 1px solid var(--section-border-dark); /* Subtle separator lines for sections */
+    transition: border-bottom-color 0.3s ease;
+}
+
+body.light-theme section {
+    border-bottom: 1px solid var(--section-border-light);
 }
 
 section:last-of-type {
@@ -92,23 +190,35 @@ section h2 {
     text-align: center;
     font-weight: normal;
     letter-spacing: 1px;
+    /* color will inherit from body */
 }
 
 /* Hero Section (Optional - added for a bit more style) */
 #hero {
-    background-color: #050505; /* Very dark grey */
+    background-color: var(--hero-bg-dark); /* Very dark grey */
     text-align: center;
     padding: 80px 0; /* More padding for hero */
+    transition: background-color 0.3s ease;
+}
+
+body.light-theme #hero {
+    background-color: var(--hero-bg-light);
 }
 
 #hero h2 {
     font-size: 3em;
     margin-bottom: 20px;
+    /* color will inherit from body */
 }
 
 #hero p {
     font-size: 1.2em;
-    color: #bbbbbb;
+    color: var(--hero-text-color-dark);
+    transition: color 0.3s ease;
+}
+
+body.light-theme #hero p {
+    color: var(--hero-text-color-light);
 }
 
 
@@ -120,7 +230,12 @@ section h2 {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    color: #dddddd;
+    color: var(--about-text-color-dark);
+    transition: color 0.3s ease;
+}
+
+body.light-theme #about p {
+    color: var(--about-text-color-light);
 }
 
 /* Projects Section */
@@ -131,11 +246,17 @@ section h2 {
 }
 
 .project-item {
-    background-color: #111111; /* Dark grey for project cards */
+    background-color: var(--project-item-bg-dark); /* Dark grey for project cards */
     padding: 25px;
-    border: 1px solid #222222;
+    border: 1px solid var(--project-item-border-dark);
     border-radius: 10px;
     text-align: left; /* Align text to left for project items */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.light-theme .project-item {
+    background-color: var(--project-item-bg-light);
+    border: 1px solid var(--project-item-border-light);
 }
 
 .project-item img {
@@ -149,21 +270,31 @@ section h2 {
 .project-item h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: #ffffff;
+    color: var(--text-color-dark); /* Should match body text color */
+    transition: color 0.3s ease;
+}
+
+body.light-theme .project-item h3 {
+    color: var(--text-color-light);
 }
 
 .project-item p {
     font-size: 0.95em;
     margin-bottom: 20px;
-    color: #cccccc;
+    color: var(--project-item-text-dark);
+    transition: color 0.3s ease;
+}
+
+body.light-theme .project-item p {
+    color: var(--project-item-text-light);
 }
 
 /* Interactive Button Style */
 .interactive-button {
     display: inline-block;
     background-color: transparent;
-    border: 1px solid #ffffff;
-    color: #ffffff;
+    border: 1px solid var(--button-border-dark);
+    color: var(--button-text-dark);
     padding: 10px 20px;
     text-decoration: none;
     font-size: 0.9em;
@@ -171,21 +302,37 @@ section h2 {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body.light-theme .interactive-button {
+    border: 1px solid var(--button-border-light);
+    color: var(--button-text-light);
 }
 
 .interactive-button:hover {
     transform: scale(1.1); /* Standard grow effect for all interactive buttons */
-    background-color: #ffffff;
-    color: #000000;
+    background-color: var(--button-hover-bg-dark);
+    color: var(--button-hover-text-dark);
 }
+
+body.light-theme .interactive-button:hover {
+    background-color: var(--button-hover-bg-light);
+    color: var(--button-hover-text-light);
+}
+
 
 /* No specific override needed for project-link anymore if 1.1 is standard */
 
 
 /* Contact Section */
 #contact {
-    background-color: #050505; /* Slightly different bg for contact section */
+    background-color: var(--contact-bg-dark); /* Slightly different bg for contact section */
+    transition: background-color 0.3s ease;
+}
+
+body.light-theme #contact {
+    background-color: var(--contact-bg-light);
 }
 
 #contact-form {
@@ -201,7 +348,12 @@ section h2 {
     display: block;
     margin-bottom: 8px;
     font-size: 0.9em;
-    color: #cccccc;
+    color: var(--form-label-color-dark);
+    transition: color 0.3s ease;
+}
+
+body.light-theme .form-group label {
+    color: var(--form-label-color-light);
 }
 
 .form-group input[type="text"],
@@ -209,19 +361,35 @@ section h2 {
 .form-group textarea {
     width: 100%;
     padding: 12px;
-    background-color: #1a1a1a; /* Dark input background */
-    border: 1px solid #333333;
-    color: #ffffff;
+    background-color: var(--form-input-bg-dark); /* Dark input background */
+    border: 1px solid var(--form-input-border-dark);
+    color: var(--text-color-dark); /* Should match body text */
     font-size: 1em;
     border-radius: 3px; /* Subtle rounding */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-theme .form-group input[type="text"],
+body.light-theme .form-group input[type="email"],
+body.light-theme .form-group textarea {
+    background-color: var(--form-input-bg-light);
+    border: 1px solid var(--form-input-border-light);
+    color: var(--text-color-light);
 }
 
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #ffffff;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    border-color: var(--form-input-focus-border-dark);
+    box-shadow: 0 0 5px var(--form-input-focus-shadow-dark);
+}
+
+body.light-theme .form-group input[type="text"]:focus,
+body.light-theme .form-group input[type="email"]:focus,
+body.light-theme .form-group textarea:focus {
+    border-color: var(--form-input-focus-border-light);
+    box-shadow: 0 0 5px var(--form-input-focus-shadow-light);
 }
 
 .form-group textarea {
@@ -232,17 +400,26 @@ section h2 {
     width: 100%; /* Full width submit button */
     padding: 12px;
     font-size: 1em;
+    /* Styles inherited from .interactive-button */
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 30px 0;
-    background-color: #0a0a0a;
-    color: #777777;
+    background-color: var(--footer-bg-dark);
+    color: var(--footer-text-color-dark);
     font-size: 0.9em;
-    border-top: 1px solid #222;
+    border-top: 1px solid var(--footer-border-dark);
+    transition: background-color 0.3s ease, color 0.3s ease, border-top-color 0.3s ease;
 }
+
+body.light-theme footer {
+    background-color: var(--footer-bg-light);
+    color: var(--footer-text-color-light);
+    border-top: 1px solid var(--footer-border-light);
+}
+
 
 /* Responsive Design Adjustments */
 @media (max-width: 768px) {
@@ -308,14 +485,30 @@ footer {
 }
 
 .flash.success {
-  background-color: #1a1a1a;
-  color: #ffffff;
-  border: 1px solid #000000
+  background-color: var(--flash-success-bg-dark);
+  color: var(--flash-success-text-dark);
+  border: 1px solid var(--flash-success-border-dark);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body.light-theme .flash.success {
+  background-color: var(--flash-success-bg-light);
+  color: var(--flash-success-text-light);
+  border: 1px solid var(--flash-success-border-light);
 }
 
 .flash.error {
-  background-color: #ffe6e6;
-  color: #b30000;
-  border: 1px solid #b30000;
+  background-color: var(--flash-error-bg-dark); /* Assuming error styles might be consistent or have their own light vars */
+  color: var(--flash-error-text-dark);
+  border: 1px solid var(--flash-error-border-dark);
+  /* Add transition if error styles also change significantly, or define light theme vars for errors */
 }
+
+/* If error styles need to change for light theme, add:
+body.light-theme .flash.error {
+  background-color: var(--flash-error-bg-light);
+  color: var(--flash-error-text-light);
+  border: 1px solid var(--flash-error-border-light);
+}
+*/
 
