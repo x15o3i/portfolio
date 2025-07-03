@@ -64,16 +64,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Theme switcher logic
     const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon'); // Get the icon span
     const body = document.body;
+
+    const moonIcon = '🌙'; // Unicode moon character
+    const sunIcon = '☀️'; // Unicode sun character
 
     // Function to apply the saved theme or default to dark
     function applyTheme(theme) {
         if (theme === 'light') {
             body.classList.add('light-theme');
-            themeToggle.textContent = 'Dark Mode';
+            if (themeIcon) themeIcon.textContent = sunIcon;
         } else {
             body.classList.remove('light-theme');
-            themeToggle.textContent = 'Light Mode';
+            if (themeIcon) themeIcon.textContent = moonIcon;
         }
     }
 
@@ -85,17 +89,22 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTheme('dark'); // Default to dark theme, or use 'light' if you prefer light as default
     }
 
-    if (themeToggle) { // Ensure the button exists before adding an event listener
+    if (themeToggle && themeIcon) { // Ensure the button and icon span exist
         themeToggle.addEventListener('click', () => {
+            themeIcon.classList.add('theme-icon-spin'); // Add spin animation class
             if (body.classList.contains('light-theme')) {
                 body.classList.remove('light-theme');
                 localStorage.setItem('theme', 'dark');
-                themeToggle.textContent = 'Light Mode';
+                themeIcon.textContent = moonIcon;
             } else {
                 body.classList.add('light-theme');
                 localStorage.setItem('theme', 'light');
-                themeToggle.textContent = 'Dark Mode';
+                themeIcon.textContent = sunIcon;
             }
+            // Remove the animation class after it has played
+            setTimeout(() => {
+                themeIcon.classList.remove('theme-icon-spin');
+            }, 300); // Must match the CSS transition duration
         });
     }
 });
