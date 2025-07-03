@@ -155,16 +155,22 @@ body.light-theme header nav ul li a {
 header nav ul li a:hover,
 header nav ul li a.active { /* For active page or hover */
     color: var(--nav-link-hover-dark);
+    font-weight: bold;
 }
 
 body.light-theme header nav ul li a:hover,
 body.light-theme header nav ul li a.active {
     color: var(--nav-link-hover-light);
+    font-weight: bold;
 }
 
 /* Main Content Sections */
 main {
     padding-top: 80px; /* Adjust based on header height */
+}
+
+section[id] { /* Apply to sections that can be targeted by ID */
+    scroll-margin-top: 80px; /* Offset for the fixed header height */
 }
 
 section {
@@ -522,6 +528,8 @@ body.light-theme .flash.error {
 #theme-icon {
     display: inline-block;
     transition: transform 0.3s ease-in-out, opacity 0.2s ease;
+    filter: grayscale(100%);
+    opacity: 1; /* Ensure full opacity if grayscale affects it */
 }
 
 /* Initial state for icons (moon visible, sun hidden by JS initially or vice-versa) */

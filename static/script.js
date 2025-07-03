@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: null, // relative to document viewport
         rootMargin: '0px',
-        threshold: 0.6 // 60% of section visible
+        threshold: 0.25 // Changed from 0.6 to 0.25 (25% of section visible)
     };
 
     const observer = new IntersectionObserver((entries, obs) => {
@@ -67,8 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeIcon = document.getElementById('theme-icon'); // Get the icon span
     const body = document.body;
 
-    const moonIcon = '🌙'; // Unicode moon character
-    const sunIcon = '☀️'; // Unicode sun character
+    const moonIcon = '🌙\uFE0E'; // Unicode moon character with text presentation selector
+    const sunIcon = '☀️\uFE0E'; // Unicode sun character with text presentation selector
 
     // Function to apply the saved theme or default to dark
     function applyTheme(theme) {
