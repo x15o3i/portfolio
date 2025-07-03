@@ -529,5 +529,33 @@ body.light-theme .flash.error {
 
 /* Animation for icon transition */
 .theme-icon-spin {
-    transform: rotate(180deg);
+    transform: rotate(45deg);
+}
+
+/* Remove border and background from theme toggle icon */
+.theme-button-icon {
+    padding: 8px 12px;
+    font-size: 1.2em;
+    line-height: 1;
+    border: none !important;
+    background: none;
+    box-shadow: none;
+}
+
+.theme-button-icon:hover,
+.theme-button-icon:focus {
+    border: none !important;
+    background: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Prevent hover background color just for the theme toggle button */
+.theme-button-icon:hover,
+body.light-theme .theme-button-icon:hover {
+    background-color: transparent !important;
+    color: inherit !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
