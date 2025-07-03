@@ -512,3 +512,22 @@ body.light-theme .flash.error {
 }
 */
 
+/* Theme Toggle Icon Button */
+.theme-button-icon {
+    padding: 8px 12px; /* Adjust padding for icon */
+    font-size: 1.2em; /* Make icon slightly larger */
+    line-height: 1; /* Ensure icon is vertically centered */
+}
+
+#theme-icon {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease;
+}
+
+/* Initial state for icons (moon visible, sun hidden by JS initially or vice-versa) */
+/* We will set the actual character content via JS */
+
+/* Animation for icon transition */
+.theme-icon-spin {
+    transform: rotate(180deg);
+}
