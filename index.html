@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
     <header>
@@ -46,7 +46,7 @@
                     <!-- Project 1 -->
                     <div class="project-item">
                         <h3>AUL BYEATS (UI/UX)</h3>
-                        <img src="{{ url_for('static', filename='asset/project1.png') }}" alt="Project 1">
+                        <img src="static/asset/project1.png" alt="Project 1">
                         <p>Amazing UI/UX project. Focusing on user flow and modern design principles.</p>
                         <a href="https://www.figma.com/proto/QV7dobhpFVB3wCfI5DJO9e/AULBY?node-id=0-1&p=f&t=yjKUkVUm2y0WqVvy-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2" class="interactive-button project-link" target="_blank">View Details</a>
                     </div>
@@ -59,14 +59,14 @@
                     <!-- Project 3 -->
                     <div class="project-item">
                         <h3>Portfolio (HTML/CSS)</h3>
-                        <img src="{{ url_for('static', filename='asset/project3.png') }}" alt="Project 3">
+                        <img src="static/asset/project3.png" alt="Project 3">
                         <p>Created my own portfolio using HTML & CSS & PYTHON.</p>
                         <a href="https://github.com/x15o3i/portfolio" class="interactive-button project-link" target="_blank">View on GitHub</a>
                     </div>
                     <!-- Project 4 -->
                      <div class="project-item">
                         <h3>Shopping Website</h3>
-                        <img src="{{ url_for('static', filename='asset/project4.png') }}" alt="Project 4">
+                        <img src="static/asset/project4.png" alt="Project 4">
                         <p>A Simple website for shopping.</p>
                         <a href="https://shopping-bassoon.vercel.app/" class="interactive-button project-link" target="_blank">Visit</a>
                     </div>
@@ -79,7 +79,7 @@
                     <!-- Project 6 -->
                     <div class="project-item">
                         <h3>Accuvice Design (UI/UX)</h3>
-                         <img src="{{ url_for('static', filename='asset/project6.png') }}" alt="Project6">
+                         <img src="static/asset/project6.png" alt="Project6">
                         <p>UI/UX design for Accuvice</p>
                         <a href="https://www.figma.com/proto/6xMU67OH5I5w2t0ZbG9vaq/Accuvice-%F0%9F%98%8E?node-id=22-809&t=Jzu59pMFnbBJLsln-0&scaling=contain&content-scaling=responsive&page-id=0%3A1&starting-point-node-id=22%3A809" class="interactive-button project-link" target="_blank">View Details</a>
                     </div>
@@ -114,18 +114,8 @@
         <section id="contact">
             <div class="container">
                 <h2>Contact Me</h2>
-
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                  {% if messages %}
-                    <ul class="flash-messages">
-                      {% for category, message in messages %}
-                        <li class="flash {{ category }}">{{ message }}</li>
-                      {% endfor %}
-                    </ul>
-                  {% endif %}
-                {% endwith %}
-
-                <form id="contact-form" action="{{ url_for('submit_contact') }}" method="POST">
+                <!-- Removed Flask flash messages -->
+                <form id="contact-form"> <!-- Removed action and method -->
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" required>
@@ -138,7 +128,11 @@
                         <label for="message">Message:</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="interactive-button">Send Message</button>
+                    <!-- Button type will be changed by JavaScript to handle mailto -->
+                    <button type="button" id="submit-contact-btn" class="interactive-button">Send Message</button>
+                    <p style="margin-top: 15px; text-align: center; font-size: 0.9em;">
+                        <em>Alternatively, you can email me directly at <a href="mailto:raphael.fulfilled@example.com" id="direct-email-link">raphael.fulfilled@example.com</a>. <br>(Please update this email address)</em>
+                    </p>
                 </form>
             </div>
         </section>
@@ -150,6 +144,6 @@
         </div>
     </footer>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="static/script.js"></script>
 </body>
 </html>

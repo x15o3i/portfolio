@@ -49,18 +49,60 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // Note: Contact form submission will be handled by standard HTML form POST to Flask.
-    // If AJAX submission was required, the code would go here.
-    // Example:
-    // const contactForm = document.getElementById('contact-form');
-    // if (contactForm) {
-    //     contactForm.addEventListener('submit', function(e) {
-    //         e.preventDefault();
-    //         // Add AJAX submission logic here
-    //         console.log('Contact form would be submitted via JavaScript here.');
-    //         // Display success/error messages dynamically
-    //     });
-    // }
+    // Contact form: mailto link
+    const contactForm = document.getElementById('contact-form');
+    const submitContactBtn = document.getElementById('submit-contact-btn');
+    // It's good practice to let the user know what the real email is.
+    // Update this to the actual email address where you want to receive messages.
+    const portfolioEmail = 'raphael.fulfilled@example.com'; // IMPORTANT: User should update this
+
+    if (contactForm && submitContactBtn) {
+        // Update the visible email link in the HTML
+        const directEmailLink = document.getElementById('direct-email-link');
+        if (directEmailLink) {
+            directEmailLink.href = `mailto:${portfolioEmail}`;
+            directEmailLink.textContent = portfolioEmail;
+        }
+
+        submitContactBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent any default form submission
+
+            const name = contactForm.querySelector('#name').value;
+            const emailField = contactForm.querySelector('#email').value; // Sender's email
+            const message = contactForm.querySelector('#message').value;
+
+            if (!name || !emailField || !message) {
+                alert('Please fill out all fields in the contact form.');
+                return;
+            }
+
+            // Basic email validation
+            if (!validateEmail(emailField)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            const subject = `Portfolio Contact: ${name}`;
+            const body = `Name: ${name}\nEmail: ${emailField}\n\nMessage:\n${message}`;
+
+            let mailtoLink = `mailto:${portfolioEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Some email clients have limits on URL length for mailto.
+            // If the body is very long, it might be truncated.
+            if (mailtoLink.length > 2000) { // Common limit, though varies
+                alert('Your message is very long. Please consider sending a shorter message or emailing directly.');
+                // Optionally, just open mailto with subject and let user copy-paste body
+                mailtoLink = `mailto:${portfolioEmail}?subject=${encodeURIComponent(subject)}`;
+            }
+
+            window.location.href = mailtoLink;
+        });
+    }
+
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    }
 
     // Theme switcher logic
     const themeToggle = document.getElementById('theme-toggle');
