@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
     const submitContactBtn = document.getElementById('submit-contact-btn');
     // It's good practice to let the user know what the real email is.
-    // Update this to the actual email address where you want to receive messages.
-    const portfolioEmail = 'raphael.fulfilled@example.com'; // IMPORTANT: User should update this
+    // This email address should match the one in index.html
+    const portfolioEmail = 'raphaelfulfilled@gmail.com';
 
     if (contactForm && submitContactBtn) {
         // Update the visible email link in the HTML
