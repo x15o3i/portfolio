@@ -52,7 +52,9 @@ Check it out here:
 
 🧠 Author
 Raphael Fulfilled
+
 UI/UX Designer & Frontend Developer
+
 GitHub: @x15o3i
 
 📄 License
