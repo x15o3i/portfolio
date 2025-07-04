@@ -16,11 +16,6 @@ This project showcases my work as a **UI/UX Designer** and **Frontend Developer*
 ├── assets/ # Images and icons
 └── README.md # This file right here 😄
 
-yaml
-Copy
-Edit
-
----
 
 ## ✨ Features
 
@@ -42,7 +37,7 @@ To set it up:
 2. Copy your form's `action` URL
 3. In `index.html`, update the form tag:
 
-```html
+
 <form action="https://formspree.io/f/YOUR_ID" method="POST">
   <input type="text" name="name" required>
   <input type="email" name="email" required>
