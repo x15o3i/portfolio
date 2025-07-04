@@ -1,64 +1,65 @@
 # 🧑‍💻 Raphael Fulfilled — Portfolio Website
 
-Welcome to my personal portfolio! This project showcases my work as a **UI/UX Designer** and **Python Developer**, featuring minimalist design, real projects, and a contact form that sends email directly to me.
+Welcome to my personal portfolio!  
+This project showcases my work as a **UI/UX Designer** and **Frontend Developer**, featuring minimalist design, real projects, and a contact form that sends messages directly to my email — **without any backend setup**.
 
 ---
 
 ## 📂 Project Structure
 
 .
-├── app.py # Flask backend handling contact form
-├── templates/
-│ └── index.html # Main HTML file
+├── index.html # Main HTML file
+├── contact.html # Contact page (if separate)
 ├── static/
 │ ├── style.css # CSS styles
 │ └── script.js # JavaScript interactions
-├── assets/ # Project images
-└── .env # Email config (not committed)
+├── assets/ # Images and icons
+└── README.md # This file right here 😄
+
+yaml
+Copy
+Edit
 
 ---
 
 ## ✨ Features
 
 - 🎨 **Minimalist, responsive design**
-- 🛠️ **Built with Flask** for handling contact form submissions
-- 📧 **Email integration**: messages sent via secure SMTP
-- 🔒 Environment variables used to keep credentials safe
-- 📁 Organized file structure: `templates/`, `static/`, `assets/`
+- ⚡ **Static website** — no backend or server required
+- 📧 **Working contact form** using Formspree or Getform
+- 🚀 Easy to host on GitHub Pages, Vercel, or Netlify
+- 🗂️ Clean and organized file structure
 
 ---
 
-## 📬 Contact Form Setup (If You’re Cloning This)
+## 📬 Contact Form Setup
 
-To make the contact form work, you'll need to set up a `.env` file with your own email credentials.
+This project uses a static form service, so you don't need Python or any server.
 
-Create a `.env` file in the root and add:
+To set it up:
 
-FLASK_SECRET_KEY=your_flask_secret
-MAIL_SENDER_EMAIL=your_gmail_address@gmail.com
-MAIL_SENDER_PASSWORD=your_gmail_app_password
-MAIL_RECEIVER_EMAIL=your_real_email_to_receive_messages@gmail.com
-Use Gmail App Password for security.
-How to create one →
+1. Create a free account on [Formspree](https://formspree.io) or [Getform](https://getform.io)
+2. Copy your form's `action` URL
+3. In `index.html`, update the form tag:
 
-🚀 Running Locally
-Make sure Python is installed.
+```html
+<form action="https://formspree.io/f/YOUR_ID" method="POST">
+  <input type="text" name="name" required>
+  <input type="email" name="email" required>
+  <textarea name="message" required></textarea>
+  <button type="submit">Send</button>
+</form>
+Done! You’ll get submissions in your email, no backend code needed.
 
-pip install flask flask-mail python-dotenv
-python app.py
-
-Then open http://localhost:5001 in your browser.
-
-🌐 Live Demo
-Coming soon… 
-
+🚀 Live Demo
+Check it out here:
+🌐 https://x15o3i.github.io/portfolio/
 
 🧠 Author
 Raphael Fulfilled
-UI/UX Designer & Python Developer
-GitHub @x15o3i
+UI/UX Designer & Frontend Developer
+GitHub: @x15o3i
 
 📄 License
-MIT — feel free to clone or use the structure for your own portfolio!
-
-
+MIT License — feel free to clone or use the structure for your own portfolio.
+Just don’t forget to sprinkle in your own creativity. 😄
